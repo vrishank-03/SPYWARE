@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execute Script</title>
+    <style>
+        /* Add your CSS rules here */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Execute Python Script</h1>
+    
+    <button id="startButton">Enable</button>
+    <button id="stopButton">Disable</button>
+
+    <script>
+        document.getElementById("startButton").addEventListener("click", function() {
+            fetch("/start-script", { method: "POST" })
+                .then(response => console.log("Script started"))
+                .catch(error => console.error("Error starting script:", error));
+        });
+
+        document.getElementById("stopButton").addEventListener("click", function() {
+            fetch("/stop-script", { method: "POST" })
+                .then(response => console.log("Script stopped"))
+                .catch(error => console.error("Error stopping script:", error));
+        });
+    </script>
+</body>
+</html>
