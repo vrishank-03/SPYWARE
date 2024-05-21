@@ -40,7 +40,7 @@ def send_email(subject, body, to_email, attachment_data=[]):
     server.sendmail(from_email, to_email, text)
     server.quit()
 
-# Your existing code
+
 def start():
     global running
     running = True
